@@ -1,0 +1,71 @@
+<!-- ここにかくお -->
+<style>
+  td {
+    border: 3px #000000 solid;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font-size: 80;
+  }
+
+  #result {
+    font-size: 100;
+  }
+</style>
+
+<script>
+  var turn = 0;
+  var stones = Array(9);
+
+  function putStone(id) {
+    var el = document.getElementById(id);
+    el.innerHTML = (turn % 2 == 0)? "O" : "X";
+    stones[Number(id)] = (turn % 2 == 0)? 1 : 2;
+    el.onclick = "";
+  }
+
+  function judge() {
+    lines = [
+              [0, 1, 2],
+              [3, 4, 5],
+              [6, 7, 8],
+              [0, 3, 6],
+              [1, 4, 7],
+              [2, 5, 8],
+              [0, 4, 8],
+              [2, 4, 6],
+            ];
+    for (var i = 0; i < lines.length; i++) {
+      var [a, b, c] = lines[i];
+
+      if (stones[a] && stones[a] == stones[b] && stones[a] == stones[c]) {
+        var el = document.getElementById("result");
+        el.innerHTML = (turn % 2 == 0)? "O" : "X";
+        el.innerHTML += "の勝ち";
+      }
+    }
+
+    turn++;
+  }
+
+</script>
+
+
+<table>
+  <tr>
+    <td id="0" onclick="putStone(this.id);judge();"></td>
+    <td id="1" onclick="putStone(this.id);judge();"></td>
+    <td id="2" onclick="putStone(this.id);judge();"></td>
+  </tr>
+  <tr>
+    <td id="3" onclick="putStone(this.id);judge();"></td>
+    <td id="4" onclick="putStone(this.id);judge();"></td>
+    <td id="5" onclick="putStone(this.id);judge();"></td>
+  </tr>
+  <tr>
+    <td id="6" onclick="putStone(this.id);judge();"></td>
+    <td id="7" onclick="putStone(this.id);judge();"></td>
+    <td id="8" onclick="putStone(this.id);judge();"></td>
+  </tr>
+</table>
+<div id="result"></div>
