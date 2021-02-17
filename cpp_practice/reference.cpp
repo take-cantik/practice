@@ -47,6 +47,7 @@ int g(int &x) {
 }
 
 void example_3(void) {
+  cout << "example 3" << endl;
   int a = 3;
   int b = g(a);
   cout << "a = " << a << endl;
@@ -59,10 +60,51 @@ void min_and_max(int a, int b, int c, int &minimum, int &maximum) {
 }
 
 void example_4(void) {
+  cout << "example 4" << endl;
   int minimum, maximum;
   min_and_max(3, 1, 5, minimum, maximum);
   cout << "minimum = " << minimum << endl;
   cout << "maximum = " << maximum << endl;
+}
+
+int sum100(vector<int> &a) {
+  int result = 0;
+  for (int i = 0; i < 100; i++) {
+    result += a.at(i);
+  }
+  return result;
+}
+
+void example_5(void) {
+  cout << "example 5" << endl;
+  vector<int> vec(1000000, 1);
+
+  int i;
+  for (i = 0; i < 500; i++) {
+    cout << sum100(vec);
+  }
+  cout << endl;
+}
+
+void example_6(void) {
+  cout << "example 6" << endl;
+  vector<int> a = {1, 3, 2, 5};
+
+  for (int x : a) {
+    x *= 2;
+  }
+
+  for (int i = 0; i < a.size(); i++) {
+    cout << a.at(i) << endl;
+  } 
+
+  for (int &x : a) {
+    x *= 2;
+  }
+
+  for (int i = 0; i < a.size(); i++) {
+    cout << a.at(i) << endl;
+  } 
 }
 
 int main(void) {
@@ -70,6 +112,8 @@ int main(void) {
   example_2();
   example_3();
   example_4();
+  example_5();
+  example_6();
 
   return 0;
 }
