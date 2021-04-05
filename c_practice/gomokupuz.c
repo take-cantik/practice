@@ -72,7 +72,7 @@ void print_board(int ary[9][9]) {
 }
 
 int main(void) {
-	printf("〜五目並べ〜\n\n座標を入力するときはx座標とy座標を続けて入力してください。\n	ex)x座標：2,y座標：3 → 座標：23\n\n");
+	printf("〜五目並べ〜\n\n座標を入力するときはx座標とy座標を続けて入力してください。\n	ex)x座標：2, y座標：3 → 座標(xy)：23\n\n");
 
 	int array[9][9] = {};
   print_board(array);
@@ -82,16 +82,16 @@ int main(void) {
   int turn = 0;
   for (; win == 0; turn++) {
 		p = turn % 2 + 1;
-		printf("プレイヤー%dは座標を入力してください。\n座標：", p);
+		printf("プレイヤー%dは座標を入力してください。\n座標(xy)：", p);
     player_scan(&x, &y);
 
 		while (x < 0 || x > 8 || y < 0 || y > 8) {
-			printf("条件の範囲内で入力してください。\n座標：");
+			printf("条件の範囲内で入力してください。\n座標(xy)：");
       player_scan(&x, &y);
 		}
 
 		while (array[x][y] != 0) {
-			printf("そこは既に選ばれています。\n座標：");
+			printf("そこは既に選ばれています。\n座標(xy)：");
       player_scan(&x, &y);
 		}
 
