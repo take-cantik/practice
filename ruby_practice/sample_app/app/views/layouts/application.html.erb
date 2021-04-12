@@ -9,11 +9,11 @@
   </head>
 
   <body>
-    <header>
-      <div>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
         <%= link_to "sample app", '#', id: "logo" %>
         <nav>
-          <ul>
+          <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", '#' %></li>
             <li><%= link_to "Help", '#' %></li>
             <li><%= link_to "Log in", '#' %></li>
@@ -21,6 +21,8 @@
         </nav>
       </div>
     </header>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
