@@ -3,7 +3,9 @@ using namespace std;
 
 int main(void) {
   int A;
-  int from, to, half;
+  int from = 20;
+  int to = 35;
+  int half = (from + to) / 2;
   int ans;
 
   for (;;) {
@@ -15,28 +17,22 @@ int main(void) {
     }
   }
 
-  from = 20;
-  to = 35;
-  half = (from + to) / 2;
-
   for (;;) {
     if (A <= half) {
       to = half;
     } else {
       from = half + 1;
     }
-    ans = half;
     half = (from + to) / 2;
     
     // cout << "from: " << from << ", to: " << to << ", half: " << half << ", ans: " << ans << endl;
 
     if (to - from == 0) {
-      ans = half;
       break;
     }
   }
 
-  cout << ans << endl;
+  cout << half << endl;
 
   return 0;
 }
