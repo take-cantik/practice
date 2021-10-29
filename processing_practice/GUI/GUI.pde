@@ -15,6 +15,13 @@ void setup() {
      .setFont(cf1)
      .setPosition(50, 400)
      .setSize(120, 40);
+
+  cp5.addTextfield("ImageFileInput")
+     .setLabel("画像ファイル名")
+     .setFont(cf1)
+     .setAutoClear(false)
+     .setPosition(50, 300)
+     .setSize(120, 40);
 }
 
 void draw() {
@@ -25,7 +32,16 @@ void draw() {
   }
 }
 
+String FileName;
+
 void ImageDisp() {
-  img = loadImage("sample1.jpg");
+  if (FileName != null) {
+    img = loadImage(FileName);
+  }
+}
+
+void ImageFileInput(String Text) {
+  println("入力文字列" + Text);
+  FileName = Text;
 }
 
