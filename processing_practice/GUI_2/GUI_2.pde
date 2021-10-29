@@ -1,6 +1,8 @@
 import controlP5.*;
 ControlP5 cp5;
 
+int State;
+
 void setup() {
   size(640, 480);
 
@@ -17,9 +19,21 @@ void setup() {
      .setColorBackground(color(#9609B9))
      .setColorForeground(color(#BD0CEA))
      .setColorCaptionLabel(color(#FBF5FC));
+
+  State = 0;
+  println("初期値　　　　：状態 = " + State);
 }
 
 void draw() {
   background(#750B8E);
 }
+
+void FigChange() {
+  State++;
+  if (State > 3) {
+    State = 0;
+  }
+  println("図形切替の押下：状態 = " + State);
+}
+
 
