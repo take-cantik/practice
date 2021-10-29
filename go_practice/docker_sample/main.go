@@ -3,46 +3,28 @@ package main
 import (
 	"fmt"
   "os"
-	"strings"
 	"github.com/slack-go/slack"
+  "github.com/joho/godotenv"
 )
 
-//EV put new slack events
-var EV *slack.MessageEvent
-
-//RTM use for sending events to slack
-var RTM *slack.RTM
-
-//BotToken Put your slackbot token here
-const BotToken string := os.Getenv("BOT_TOKEN")
-
-//DefaultChannel Put your default channel
-const DefaultChannel string = "#takecantik-go-practice"
-
 func main() {
-	var api *slack.Client = slack.New(BotToken)
+  envErr := godotenv.Load(fmt.Sprintf("./%s.env", os.Getenv("GO_ENV")))
+  if envErr != nil {
+    panic(envErr)
+  }
 
-	RTM = api.NewRTM()
+  //BotToken Put your slackbot token here
+  var BotToken string = os.Getenv("BOT_TOKEN")
+  
+  //DefaultChannel Put your default channel
+  var DefaultChannel string = os.Getenv("DEFAULT_CHANNEL")
+  _ = DefaultChannel
 
-	go RTM.ManageConnection()
+  c := slack.New(BotToken)
 
-	for msg := range RTM.IncomingEvents {
-		switch ev := msg.Data.(type) {
-		case *slack.ConnectedEvent:
-			fmt.Printf("Start connection with Slack\n")
-		case *slack.MessageEvent:
-			EV = ev
-			ListenTo()
-		}
-	}
-}
-
-//ListenTo excute functions under suitable conditions
-func ListenTo() {
-	switch {
-	case strings.Contains("こんにちは", EV.Text):
-		RTM.SendMessage(RTM.NewOutgoingMessage("こんにちは。", EV.Channel))
-		return
-	}
+  _, _, postErr := c.PostMessage("#takecantik-go-practice", slack.MsgOptionText("Hello World", true))
+  if postErr != nil {
+    panic(postErr)
+  }
 }
 
