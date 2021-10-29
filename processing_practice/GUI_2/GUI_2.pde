@@ -22,6 +22,9 @@ void setup() {
 
   State = 0;
   println("初期値　　　　：状態 = " + State);
+
+  PFont font = createFont("BIZ UDゴシック", 16, true);
+  textFont(font);
 }
 
 void draw() {
@@ -29,15 +32,19 @@ void draw() {
 
   switch(State) {
     case 0:
+      text("なし", 85, 350);
       break;
     case 1:
       ellipse(120, 100, 180, 120);
+      text("楕円", 85, 350);
       break;
     case 2:
       triangle(50, 150, 100, 20, 240, 200);
+      text("三角形", 85, 350);
       break;
     case 3:
       quad(38, 31, 180, 20, 150, 200, 30, 120);
+      text("四角形", 85, 350);
       break;
     default:
   }
