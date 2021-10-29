@@ -26,6 +26,21 @@ void setup() {
 
 void draw() {
   background(#750B8E);
+
+  switch(State) {
+    case 0:
+      break;
+    case 1:
+      ellipse(120, 100, 180, 120);
+      break;
+    case 2:
+      triangle(50, 150, 100, 20, 240, 200);
+      break;
+    case 3:
+      quad(38, 31, 180, 20, 150, 200, 30, 120);
+      break;
+    default:
+  }
 }
 
 void FigChange() {
@@ -35,5 +50,4 @@ void FigChange() {
   }
   println("図形切替の押下：状態 = " + State);
 }
-
 
