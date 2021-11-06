@@ -6,16 +6,24 @@ import (
   "log"
   "net/http"
   "os"
+  "fmt"
   "strings"
 
+  "github.com/joho/godotenv"
   "github.com/slack-go/slack"
   "github.com/slack-go/slack/slackevents"
 )
 
 func main() {
-  api := slack.New(os.Getenv("SLACK_BOT_TOKEN"))
+  envErr := godotenv.Load(fmt.Sprintf("./%s.env", os.Getenv("GO_ENV")))
+  if envErr != nil {
+    panic(envErr)
+  }
+  slackBotToken := os.Getenv("SLACK_BOT_TOKEN")
+  api := slack.New(slackBotToken)
 
   http.HandleFunc("/slack/events", func(w http.ResponseWriter, r *http.Request) {
+    log.Println("event")
     body, err := ioutil.ReadAll(r.Body)
     if err != nil {
       log.Println(err)
