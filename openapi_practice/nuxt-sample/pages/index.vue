@@ -13,11 +13,16 @@ import {
   useContext,
   useFetch,
 } from "@nuxtjs/composition-api";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 interface Texts {
   id: string;
   contents: string;
+}
+
+interface Response {
+  currentPage: number;
+  data: Texts[];
 }
 
 export default defineComponent({
@@ -26,7 +31,9 @@ export default defineComponent({
     const { $config } = useContext();
 
     const { fetch } = useFetch(async () => {
-      const responses = await axios.get(`${$config.apiURL}/texts`);
+      const responses: AxiosResponse<Response> = await axios.get(
+        `${$config.apiURL}/texts`
+      );
 
       words.value = responses.data.data;
     });
