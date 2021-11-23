@@ -12,10 +12,11 @@
     "prepare": "chmod +x .githooks/pre-commit && git config --local core.hooksPath .githooks"
   },
   "dependencies": {
-    "core-js": "^3.15.1",
-    "nuxt": "^2.15.7",
     "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/composition-api": "^0.29.0",
+    "axios": "^0.24.0",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7",
     "ress": "^4.0.0",
     "sass": "^1.43.4",
     "sass-loader": "10"
@@ -29,9 +30,9 @@
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-vue": "^7.12.1",
     "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.3.2",
-    "lint-staged": "^11.2.6"
+    "eslint-plugin-vue": "^7.12.1",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.3.2"
   }
 }
