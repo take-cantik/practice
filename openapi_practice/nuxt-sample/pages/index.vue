@@ -1,18 +1,40 @@
 <template>
   <div class="main">
-    <h1 class="main__hello">{{ hello }}</h1>
+    <h1 v-for="word in words" :key="word.id" class="main__hello">
+      {{ word.content }}
+    </h1>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "@nuxtjs/composition-api";
+import {
+  defineComponent,
+  ref,
+  useContext,
+  useFetch,
+} from "@nuxtjs/composition-api";
+import axios from "axios";
+
+interface Texts {
+  id: string;
+  contents: string;
+}
 
 export default defineComponent({
   setup() {
-    const hello = ref<string>("Hello, world!");
+    const words = ref<Texts[]>();
+    const { $config } = useContext();
+
+    const { fetch } = useFetch(async () => {
+      const responses = await axios.get(`${$config.apiURL}/texts`);
+
+      words.value = responses.data.data;
+    });
+
+    fetch();
 
     return {
-      hello,
+      words,
     };
   },
 });
@@ -25,6 +47,7 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-flow: column;
 
   &__hello {
     font-size: 28px;
