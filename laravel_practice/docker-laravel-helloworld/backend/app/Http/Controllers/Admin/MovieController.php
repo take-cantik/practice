@@ -56,7 +56,7 @@ class MovieController extends Controller
 
         Movie::where('id', $id)->update($updateRequest);
 
-        return redirect(route('admin.movies.show'));
+        return redirect(route('admin.movies.show', ['movie' => $id]));
     }
 
     public function destroy($id): RedirectResponse
