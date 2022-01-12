@@ -11,7 +11,7 @@
     <th>{{ $movie->title }}</th>
     <th>{{ $movie->image_url }}</th>
     <th><a href="{{ route('admin.movies.show', [$movie->id]) }}">詳細</a></th>
-    <th><a href="{{ route('admin.movies.edit.', [$movie->id]) }}">編集</a></th>
+    <th><a href="{{ route('admin.movies.edit', [$movie->id]) }}">編集</a></th>
     {{-- <th><a href="{{ route('admin.movies.', [$movie->id]) }}">削除</a></th> --}}
   </tr>
   @endforeach

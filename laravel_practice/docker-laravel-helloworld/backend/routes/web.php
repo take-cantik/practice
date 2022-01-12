@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('admin/movies', MovieController::class);
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('movies', MovieController::class);
+});
