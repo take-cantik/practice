@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pet;
 
 class SampleController extends Controller {
     public function index() {
@@ -29,6 +30,14 @@ class SampleController extends Controller {
         return view('sample', [
             "fruit_list" => $fruit_list,
             "total" => $total
+        ]);
+    }
+
+    public function select() {
+        $pochi = Pet::find(1);
+
+        return view('select', [
+            "pochi" => $pochi
         ]);
     }
 }

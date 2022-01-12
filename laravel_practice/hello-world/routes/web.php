@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/sample', [SampleController::class, 'index']);
+Route::get('/select', [SampleController::class, 'select']);
