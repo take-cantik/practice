@@ -18,4 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movie', [MovieController::class, 'index']);
+Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
+Route::post('/movies', [MovieController::class, 'create'])->name('movies.create');
+Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
+Route::put('/movies/{id}', [MovieController::class, 'update'])->name('movies.update');
+Route::delete('/movies/{id}', [MovieController::class, 'delete'])->name('movies.delete');
