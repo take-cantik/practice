@@ -23,7 +23,7 @@ class MovieController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        Movie::ctrate($request);
+        Movie::create($request);
 
         return redirect(route('admin.movies.index'));
     }
