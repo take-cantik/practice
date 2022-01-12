@@ -23,26 +23,41 @@ class MovieController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
+        Movie::ctrate($request);
+
         return redirect(route('admin.movies.index'));
     }
 
-    public function show(Movie $movie): View
+    public function show($id): View
     {
-        return view('admin.movies.show');
+        $movie = Movie::find($id);
+
+        return view('admin.movies.show')->with('movie', $movie);
     }
 
-    public function edit(Movie $movie)
+    public function edit($id): View
     {
-        return view('admin.movies.edit');
+        $movie = Movie::find($id);
+
+        return view('admin.movies.edit')->with('movie', $movie);
     }
 
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, $id): RedirectResponse
     {
+        $updateRecest = [
+            'title' => $request->title,
+            'image_url' => $request->image_url
+        ];
+
+        Movie::where('id', $id)->update($updateRequest);
+
         return redirect(route('admin.movies.show'));
     }
 
-    public function destroy(Movie $movie)
+    public function destroy($id): RedirectResponse
     {
+        Movie::where('id', $id)->delete();
+
         return redirect(route('admin.movies.index'));
     }
 }
