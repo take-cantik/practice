@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('movies', MovieController::class);
+Route::resource('admin/movies', MovieController::class);
