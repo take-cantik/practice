@@ -1,5 +1,6 @@
 <h1>Create</h1>
-<form action="/movies" method="POST">
+<form action="/admin/movies" method="POST">
+  @csrf
   <label>タイトル</label>
   <input type="text" name="title" id="title">
   <label>画像URL</label>

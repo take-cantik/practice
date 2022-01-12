@@ -24,7 +24,11 @@ class MovieController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        Movie::create($request);
+        $data = [
+            'title' => $request->title,
+            'image_url' => $request->image_url
+        ];
+        Movie::create($data);
 
         return redirect(route('admin.movies.index'));
     }
@@ -45,7 +49,7 @@ class MovieController extends Controller
 
     public function update(Request $request, $id): RedirectResponse
     {
-        $updateRecest = [
+        $updateRequest = [
             'title' => $request->title,
             'image_url' => $request->image_url
         ];
