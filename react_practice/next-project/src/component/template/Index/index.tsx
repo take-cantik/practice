@@ -16,6 +16,7 @@ export interface IndexProps {
 
 const main = css`
   width: 100%;
+  height: calc(100vh - 44px);
   padding: 44px 0;
   background: ${colors.black.lighten[4]};
 `;
