@@ -47,14 +47,14 @@ export const FlexContainer = ({
     justify-content: ${justifyContent};
     align-items: ${alignItems};
     flex-wrap: ${flexWrap};
-    gap: ${isGapNumber ? gap : gap.sp};
+    gap: ${isGapNumber ? gap : gap.sp}px;
 
     @media (min-width: ${breakpoints.sm}px) {
-      gap: ${isGapNumber ? gap : gap.tablet};
+      gap: ${isGapNumber ? gap : gap.tablet}px;
     }
 
     @media (min-width: ${breakpoints.md}px) {
-      gap: ${isGapNumber ? gap : gap.pc};
+      gap: ${isGapNumber ? gap : gap.pc}px;
     }
   `;
 

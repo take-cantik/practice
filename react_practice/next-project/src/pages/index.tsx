@@ -1,22 +1,11 @@
 import type { NextPage } from "next";
-import { Fragment } from "react";
-import { useRecoilState } from "recoil";
-import { Header } from "~/component/shared/Header";
-import { numberState } from "~/state/number";
+import { useState } from "react";
+import { IndexTemplate } from "~/component/template/Index";
 
 const Home: NextPage = (): JSX.Element => {
-  const [number, setNumber] = useRecoilState(numberState);
+  const [num1, setNum1] = useState<number>(0);
 
-  return (
-    <Fragment>
-      <Header />
-      <h1>Hello, world!</h1>
-      <h2>{number.value}</h2>
-      <button onClick={() => setNumber({ value: number.value + 1 })}>
-        push!!
-      </button>
-    </Fragment>
-  );
+  return <IndexTemplate num1={num1} setNum1={setNum1} />;
 };
 
 export default Home;
