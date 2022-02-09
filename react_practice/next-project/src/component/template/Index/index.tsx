@@ -32,7 +32,7 @@ export const IndexTemplate = ({ num1, setNum1 }: IndexProps): JSX.Element => {
       <Header />
       <main css={main}>
         <Container>
-          <FlexContainer flexDirection="column">
+          <FlexContainer flexDirection="column" gap={32}>
             <h1>This is using useState and Recoil page!</h1>
             <GridContainer
               cols={{ sp: 1, tablet: 2, pc: 2 }}
