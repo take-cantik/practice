@@ -8,6 +8,9 @@ export interface HeaderProps extends ComponentPropsWithRef<"header"> {
 const common = css`
   width: 100%;
   height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
   background: var(--black);
   color: var(--white);
 `;

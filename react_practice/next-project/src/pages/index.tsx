@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { Header } from "~/component/shared/Header";
 import { numberState } from "~/state/number";
 
-const Home: NextPage = () => {
+const Home: NextPage = (): JSX.Element => {
   const [number, setNumber] = useRecoilState(numberState);
 
   return (
