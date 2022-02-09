@@ -10,19 +10,19 @@ type Device = {
 
 export interface GridProps extends ComponentPropsWithRef<"div"> {
   cols?: number | Device;
-  space?: number | Device;
+  gap?: number | Device;
   forwardRef?: ForwardedRef<HTMLDivElement>;
 }
 
 export const GridContainer = ({
   cols = 1,
-  space = 0,
+  gap = 0,
   forwardRef,
   children,
   ...props
 }: GridProps): JSX.Element => {
   const isColsNumber = typeof cols === "number";
-  const isSpaceNumber = typeof space === "number";
+  const isgapNumber = typeof gap === "number";
 
   const gridContainer = css`
     display: grid;
@@ -31,20 +31,20 @@ export const GridContainer = ({
       minmax(0, 1fr)
     );
     place-items: center;
-    gap: ${isSpaceNumber ? space : space.sp}px;
+    gap: ${isgapNumber ? gap : gap.sp}px;
     @media (min-width: ${breakpoints.sm}px) {
       grid-template-columns: repeat(
         ${isColsNumber ? cols : cols.tablet},
         minmax(0, 1fr)
       );
-      gap: ${isSpaceNumber ? "inherit" : space.tablet}px;
+      gap: ${isgapNumber ? "inherit" : gap.tablet}px;
     }
     @media (min-width: ${breakpoints.md}px) {
       grid-template-columns: repeat(
         ${isColsNumber ? cols : cols.pc},
         minmax(0, 1fr)
       );
-      gap: ${isSpaceNumber ? "inherit" : space.pc}px;
+      gap: ${isgapNumber ? "inherit" : gap.pc}px;
     }
   `;
 

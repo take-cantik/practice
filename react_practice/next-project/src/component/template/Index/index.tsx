@@ -37,7 +37,7 @@ export const IndexTemplate = ({ num1, setNum1 }: IndexProps): JSX.Element => {
             <h1>This is using useState and Recoil page!</h1>
             <GridContainer
               cols={{ sp: 1, tablet: 2, pc: 2 }}
-              space={32}
+              gap={32}
               css={boxes}
             >
               <UseStateNumberBox number={num1} setNumber={setNum1} />
