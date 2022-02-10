@@ -1,9 +1,14 @@
 import { css } from "@emotion/react";
-import { Dispatch, ForwardedRef, SetStateAction } from "react";
+import {
+  ComponentPropsWithRef,
+  Dispatch,
+  ForwardedRef,
+  SetStateAction
+} from "react";
 import { colors } from "styles/themes";
 import { FlexContainer } from "~/component/layout/FlexContainer";
 
-export interface UseStateNumberBoxProps {
+export interface UseStateNumberBoxProps extends ComponentPropsWithRef<"div"> {
   number: number;
   setNumber: Dispatch<SetStateAction<number>>;
   forwardRef?: ForwardedRef<HTMLDivElement>;
@@ -43,7 +48,8 @@ const button = css`
 export const UseStateNumberBox = ({
   number,
   setNumber,
-  forwardRef
+  forwardRef,
+  ...props
 }: UseStateNumberBoxProps): JSX.Element => {
   return (
     <FlexContainer
@@ -53,6 +59,7 @@ export const UseStateNumberBox = ({
       gap={20}
       css={box}
       ref={forwardRef}
+      {...props}
     >
       <h3 css={title}>use useState</h3>
       <h4 css={num}>{number}</h4>

@@ -1,11 +1,11 @@
 import { css } from "@emotion/react";
-import { ForwardedRef } from "react";
+import { ComponentPropsWithRef, ForwardedRef } from "react";
 import { useRecoilState } from "recoil";
 import { colors } from "styles/themes";
 import { numberState } from "~/state/number";
 import { FlexContainer } from "~/component/layout/FlexContainer";
 
-export interface RecoilNumberBoxProps {
+export interface RecoilNumberBoxProps extends ComponentPropsWithRef<"div"> {
   forwardRef?: ForwardedRef<HTMLDivElement>;
 }
 
@@ -41,7 +41,8 @@ const button = css`
 `;
 
 export const RecoilNumberBox = ({
-  forwardRef
+  forwardRef,
+  ...props
 }: RecoilNumberBoxProps): JSX.Element => {
   const [number, setNumber] = useRecoilState(numberState);
 
@@ -53,6 +54,7 @@ export const RecoilNumberBox = ({
       gap={20}
       css={box}
       ref={forwardRef}
+      {...props}
     >
       <h3 css={title}>use Recoil</h3>
       <h4 css={num}>{number.value}</h4>
