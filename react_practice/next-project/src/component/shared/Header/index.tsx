@@ -20,6 +20,7 @@ const common = css`
 const title = css`
   font-size: 2rem;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const Header = ({ forwardRef }: HeaderProps): JSX.Element => {
