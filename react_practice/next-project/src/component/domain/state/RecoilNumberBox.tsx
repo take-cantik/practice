@@ -3,7 +3,7 @@ import { ForwardedRef } from "react";
 import { useRecoilState } from "recoil";
 import { colors } from "styles/themes";
 import { numberState } from "~/state/number";
-import { FlexContainer } from "../layout/FlexContainer";
+import { FlexContainer } from "~/component/layout/FlexContainer";
 
 export interface RecoilNumberBoxProps {
   forwardRef?: ForwardedRef<HTMLDivElement>;

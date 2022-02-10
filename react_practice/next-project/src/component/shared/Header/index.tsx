@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import Link from "next/link";
 import { ComponentPropsWithRef, ForwardedRef } from "react";
 import { colors } from "styles/themes";
 
@@ -16,6 +17,11 @@ const common = css`
   color: ${colors.white};
 `;
 
+const title = css`
+  font-size: 2rem;
+  font-weight: bold;
+`;
+
 export const Header = ({ forwardRef }: HeaderProps): JSX.Element => {
   const header = css`
     ${common};
@@ -23,7 +29,9 @@ export const Header = ({ forwardRef }: HeaderProps): JSX.Element => {
 
   return (
     <header css={header} ref={forwardRef}>
-      <h1>This is Header</h1>
+      <Link href="/">
+        <a css={title}>This is Header</a>
+      </Link>
     </header>
   );
 };

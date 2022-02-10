@@ -5,8 +5,8 @@ import { Container } from "~/component/layout/Container";
 import { FlexContainer } from "~/component/layout/FlexContainer";
 import { GridContainer } from "~/component/layout/GridContainer";
 import { Header } from "~/component/shared/Header";
-import { RecoilNumberBox } from "~/component/shared/RecoilNumberBox";
-import { UseStateNumberBox } from "~/component/shared/UseStateNumberBox";
+import { RecoilNumberBox } from "~/component/domain/state/RecoilNumberBox";
+import { UseStateNumberBox } from "~/component/domain/state/UseStateNumberBox";
 
 export interface StateProps {
   num1: number;

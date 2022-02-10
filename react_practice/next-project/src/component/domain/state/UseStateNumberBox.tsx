@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { Dispatch, ForwardedRef, SetStateAction } from "react";
 import { colors } from "styles/themes";
-import { FlexContainer } from "../layout/FlexContainer";
+import { FlexContainer } from "~/component/layout/FlexContainer";
 
 export interface UseStateNumberBoxProps {
   number: number;
