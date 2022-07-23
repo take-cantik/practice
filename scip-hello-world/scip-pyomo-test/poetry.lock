@@ -1,0 +1,49 @@
+[[package]]
+name = "ply"
+version = "3.11"
+description = "Python Lex & Yacc"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyomo"
+version = "6.4.1"
+description = "Pyomo: Python Optimization Modeling Objects"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+ply = "*"
+
+[package.extras]
+docs = ["Sphinx (>2)", "sphinx-copybutton", "sphinx-rtd-theme (>0.5)", "sphinxcontrib-jsmath", "sphinxcontrib-napoleon", "numpy"]
+optional = ["dill", "ipython", "matplotlib", "networkx", "numpy", "openpyxl", "pint", "python-louvain", "pyyaml", "sympy", "xlrd", "z3-solver", "casadi", "numdifftools", "pandas", "scipy", "seaborn", "pywin32"]
+tests = ["coverage", "pytest", "pytest-parallel", "parameterized", "pybind11"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "50864de9bbc83244b73d538fe7a4c19ceaa95ba27794b445c673b214b208aa9e"
+
+[metadata.files]
+ply = [
+    {file = "ply-3.11-py2.py3-none-any.whl", hash = "sha256:096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"},
+    {file = "ply-3.11.tar.gz", hash = "sha256:00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"},
+]
+pyomo = [
+    {file = "Pyomo-6.4.1-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:3440bd5268e2c8193e9557d8d0a5b0c99d6eada909da1e17cb718a25805483b8"},
+    {file = "Pyomo-6.4.1-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:1c3cc9d96e43baa72507a4cb5d52f779d541c42dac999759c289efe7f2a5ea15"},
+    {file = "Pyomo-6.4.1-cp310-cp310-win_amd64.whl", hash = "sha256:d593dcbe22e7e8f7c434398b34d8b02d83e8cb83aef4390a2289f566cb2eb293"},
+    {file = "Pyomo-6.4.1-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:45f8225faa53ac3c8b6551921276028b885d5ed9d96347021324ed2bdd9be2ef"},
+    {file = "Pyomo-6.4.1-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:cf81b7b44403df4bbdd0b5023f859252476071f92a8166e43206758e51524ff3"},
+    {file = "Pyomo-6.4.1-cp37-cp37m-win_amd64.whl", hash = "sha256:5e385c13549912f0f0d7c768ba32d3b242d66df9064cfd9e499cfaeacfd4ea6e"},
+    {file = "Pyomo-6.4.1-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:b5d8ec269515071a8c1d07966624f9bf79f4cb5a134e26d48292424c38e8da85"},
+    {file = "Pyomo-6.4.1-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:d30138cbfe37507545bb270763e9eed7425a3d32a2e6c3b92a8f32eefa5159ce"},
+    {file = "Pyomo-6.4.1-cp38-cp38-win_amd64.whl", hash = "sha256:394ed6962064ebb745b8bf98a38692c9d49176b04482ea8d9c612ddcd45aa99b"},
+    {file = "Pyomo-6.4.1-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:91b6f9a349b41c5e3a335692ed4ea00ec0ebcc27e7d23575e5f832289f8c214c"},
+    {file = "Pyomo-6.4.1-cp39-cp39-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:56632731f8415cb1584201282e54d0b0fbaa218b3c498899beee12b2373edaa4"},
+    {file = "Pyomo-6.4.1-cp39-cp39-win_amd64.whl", hash = "sha256:9662ed2e046a1edccc351510ef288893f5044a27fb214d632a7311e6fd5e04b4"},
+    {file = "Pyomo-6.4.1.tar.gz", hash = "sha256:a636a3a1c8314b8be85899cb6fac5d6a9a78fc75c6d58b74d3ec106ae5ed8f59"},
+]

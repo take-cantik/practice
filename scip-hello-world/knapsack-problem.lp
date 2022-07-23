@@ -1,9 +1,9 @@
 maximize
-4 d4w12 + 2 d2w2 + 2 d2w1 + 1 d1w1 + 10 d10w4
+4 x1 + 2 x2 + 2 x3 + 1 x4 + 10 x5
 
 subject to
-weight: 12 d4w12 + 2 d2w2 + 1 d2w1 + 1 d1w1 + 4 d10w4 <= 15
+weight: 12 x1 + 2 x2 + 1 x3 + 1 x4 + 4 x5 <= 15
 
 binary
-d4w12 d2w2 d2w1 d1w1 d10w4
+x1 x2 x3 x4 x5
 
