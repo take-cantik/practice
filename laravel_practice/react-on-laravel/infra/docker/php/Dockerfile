@@ -12,8 +12,11 @@ ENV TZ=Asia/Tokyo \
 
 COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer
 
-RUN apt-get update && \
-    apt-get -y install git libpq-dev libicu-dev libonig-dev libzip-dev unzip locales nodejs npm && \
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    curl https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && \
+    apt-get -y install git libpq-dev libicu-dev libonig-dev libzip-dev unzip locales nodejs yarn && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     locale-gen en_US.UTF-8 && \

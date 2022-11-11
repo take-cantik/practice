@@ -37,3 +37,15 @@ phpunit:
 .PHONY: phpstan
 phpstan:
 	docker compose exec app bash -c "./vendor/bin/phpstan analyse --memory-limit=2G"
+
+.PHONY: dev
+dev:
+	docker compose exec app yarn dev
+
+.PHONY: up
+up:
+	docker compose up -d
+
+.PHONY: down
+down:
+	docker compose down
