@@ -11,7 +11,7 @@ import Test1 from "~/page/test-1";
 import Test2 from "~/page/test-2";
 import NotFoundPage from "~/page/404";
 
-const Application: React.FC = () => {
+const Root: React.FC = () => {
     return (
         <BrowserRouter>
             <div>
@@ -40,8 +40,8 @@ const Application: React.FC = () => {
     );
 }
 
-export default Application;
+export default Root;
 
 if (document.getElementById('app')) {
-    ReactDOM.render(<Application />, document.getElementById('app'));
+    ReactDOM.render(<Root />, document.getElementById('app'));
 }
