@@ -9,6 +9,7 @@ import {
 import Home from "~/page";
 import Test1 from "~/page/test-1";
 import Test2 from "~/page/test-2";
+import NotFoundPage from "~/page/404";
 
 const Application: React.FC = () => {
     return (
@@ -32,6 +33,7 @@ const Application: React.FC = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/test-1" element={<Test1 />} />
                     <Route path="/test-2" element={<Test2 />} />
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
         </BrowserRouter>
