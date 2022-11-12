@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     @viteReactRefresh
-    @vite(['resources/sass/app.scss', 'resources/ts/application.ts'])
+    @vite(['resources/sass/app.scss', 'resources/ts/app.ts'])
 </head>
 <body>
     <div id="app"></div>
