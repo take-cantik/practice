@@ -1,0 +1,49 @@
+version: "3.9"
+volumes:
+  db-store:
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: ./infra/docker/ruby/Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/work/src
+
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./infra/docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - ./src:/work/src
+
+  db:
+    container_name: db
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    volumes:
+      - db-store:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=rails_local
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=secret
+      - TZ=Asia/Tokyo
+
+  db-test:
+    container_name: db-test
+    image: mysql:8.0
+    ports:
+      - 13306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=rails_local
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=secret
+      - TZ=Asia/Tokyo
